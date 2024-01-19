@@ -1,36 +1,55 @@
 <!DOCTYPE html>
 <html lang="”en”">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Name of your awesome camera app -->
-    <title>Camera App</title>
-    <!-- Link to your main style sheet-->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Name of your awesome camera app -->
+  <title>Camera App</title>
+  <!-- Link to your main style sheet-->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="container">
     <!-- Camera view -->
     <div class="cam-view">
       <video id="camera--view" autoplay></video>
     </div>
 
-    <!-- Camera sensor -->
-    <div class="cam-sensor">
-      <canvas id="camera--sensor"></canvas>
-    </div>
-
-    <!-- Camera output -->
-    <div class="cam-output">
-      <img src="//:0" alt="" id="camera--output" />
-    </div>
-
     <!-- Camera trigger -->
-    <div class="btn">
+    <div class="button-group">
       <button id="camera--trigger">Take a picture</button>
+      <div style="margin: 0 8rem 0 0;"></div>
       <button id="camera--open">Open a Camera</button>
     </div>
 
-    <script src="app.js"></script>
-  </body>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+
 </html>
+
+
+<!-- Camera view -->
+<!-- <div class="cam-view">
+    <video id="camera--view" autoplay></video>
+  </div> -->
+
+<!-- Camera sensor -->
+<!-- <div class="cam-sensor">
+    <canvas id="camera--sensor"></canvas>
+  </div> -->
+
+<!-- Camera output -->
+<!-- <div class="cam-output">
+    <img src="//:0" alt="" id="camera--output" />
+  </div> -->
+
+<!-- Camera trigger -->
+<!-- <div class="btn">
+    <button id="camera--trigger">Take a picture</button>
+    <button id="camera--open">Open a Camera</button>
+  </div>
