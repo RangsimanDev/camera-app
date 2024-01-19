@@ -7,17 +7,38 @@ const cameraView = document.querySelector("#camera--view"),
     cameraTrigger = document.querySelector("#camera--trigger"),
     cameraOpen = document.querySelector("#camera--open")
 // Access the device camera and stream to cameraView
+// function cameraStart() {
+//     navigator.mediaDevices
+//         .getUserMedia(constraints)
+//         .then(function(stream) {
+//         track = stream.getTracks()[0];
+//         cameraView.srcObject = stream;
+//     })
+//     .catch(function(error) {
+//         console.error("Oops. Something is broken.", error);
+//     });
+// }
 function cameraStart() {
-    navigator.mediaDevices
-        .getUserMedia(constraints)
-        .then(function(stream) {
-        track = stream.getTracks()[0];
-        cameraView.srcObject = stream;
+  navigator.mediaDevices
+    .getUserMedia(constraints)
+    .then(function (stream) {
+      track = stream.getTracks()[0];
+
+      // Create an ImageCapture object from the track
+      const imageCapture = new ImageCapture(track);
+
+      // Rotate the image captured by 180 degrees (if necessary)
+      const imageCaptureSettings = { rotation: 180 };
+      track.applyConstraints({ advanced: [imageCaptureSettings] });
+
+      // Set the stream as the source for the cameraView
+      cameraView.srcObject = stream;
     })
-    .catch(function(error) {
-        console.error("Oops. Something is broken.", error);
+    .catch(function (error) {
+      console.error("Oops. Something is broken.", error);
     });
 }
+
 // Take a picture when cameraTrigger is tapped
 cameraTrigger.onclick = function() {
     cameraSensor.width = cameraView.videoWidth;
